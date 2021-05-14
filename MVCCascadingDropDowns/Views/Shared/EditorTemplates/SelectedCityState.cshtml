@@ -1,0 +1,61 @@
+﻿@model MVCCascadingDropDowns.Models.SelectedCityState
+@using MVCCascadingDropDowns.Models;
+
+<div asp-validation-summary="ModelOnly" class="text-danger"></div>
+@if(Model != null)
+{
+    <input type="hidden" asp-for="Id" />
+}
+<div class="form-group">
+    <label asp-for="State" class="control-label"></label>
+    <select name="State" id="State" class="form-control">
+        @if (string.IsNullOrEmpty(Model.State))
+        {
+            <option value="" selected>Please Select</option>
+        }
+        else
+        {
+            <option value="">Please Select</option>
+        }
+        @foreach (USState usState in (List<USState>)ViewBag.USStates)
+        {
+            if (Model.State == usState.Name)
+            {
+                <option value="@usState.Name" selected>@usState.Name</option>
+            }
+            else
+            {
+                <option value="@usState.Name">@usState.Name</option>
+            }
+        }
+    </select>
+    <span asp-validation-for="State" class="text-danger"></span>
+</div>
+<div class="form-group">
+    <label asp-for="City" class="control-label"></label>
+    <select name="City" id="City" class="form-control">
+        @if (string.IsNullOrEmpty(Model.City))
+        {
+            <option value="" selected>Please Select</option>
+        }
+        else
+        {
+            <option value="">Please Select</option>
+        }
+        @foreach (USCity usCity in (List<USCity>)ViewBag.USCities)
+        {
+            if (Model.State == usCity.State &&  Model.City == usCity.City)
+            {
+                <option value="@usCity.City" data-state="@usCity.State" selected>@usCity.State - @usCity.City</option>
+            }
+            else
+            {
+                <option value="@usCity.City" data-state="@usCity.State">@usCity.State - @usCity.City</option>
+            }
+        }
+    </select>
+    <span asp-validation-for="City" class="text-danger"></span>
+</div>
+<div class="form-group">
+    <input type="submit" value="Save" class="btn btn-primary" />
+</div>

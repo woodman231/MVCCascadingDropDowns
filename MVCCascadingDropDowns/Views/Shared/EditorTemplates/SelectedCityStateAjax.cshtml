@@ -1,0 +1,24 @@
+﻿@model MVCCascadingDropDowns.Models.SelectedCityState
+
+<div asp-validation-summary="ModelOnly" class="text-danger"></div>
+@if (Model != null)
+{
+    <input type="hidden" asp-for="Id" />
+}
+<div class="form-group">
+    <label asp-for="State" class="control-label"></label>
+    <select name="State" id="State" class="form-control" data-initial-val="@Model.State">
+        <option value="" class="form-control">Please Select</option>        
+    </select>
+    <span asp-validation-for="State" class="text-danger"></span>
+</div>
+<div class="form-group">
+    <label asp-for="City" class="control-label"></label>
+    <select name="City" id="City" class="form-control" data-initial-val="@Model.City">
+        <option value="">Please Select</option>
+    </select>
+    <span asp-validation-for="City" class="text-danger"></span>
+</div>
+<div class="form-group">
+    <input type="submit" value="Create" class="btn btn-primary" />
+</div>

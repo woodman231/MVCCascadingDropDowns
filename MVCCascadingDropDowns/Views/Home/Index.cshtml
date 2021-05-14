@@ -1,0 +1,10 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    <p>This application is to demonstrate two different ways of implementing cascading drop downs in ASP.NET Core MVC</p>
+    <p>Click <a asp-action="Index" asp-controller="SelectedCityStates">here</a> for the client side filtering experience where the drop downs are filtered with all of the necessary information rendered on the DOM.</p>
+    <p>Click <a asp-action="Index" asp-controller="SelectedCityStatesAjax">here</a> for the AJAX style of filtering where AJAX calls are made when the parent drop down changes.</p>
+</div>
