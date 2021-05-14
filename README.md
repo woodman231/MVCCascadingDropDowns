@@ -1,4 +1,4 @@
-#MVC Cascading Drop Downs
+# MVC Cascading Drop Downs
 
 The purpose of this repository is to demonstrate two different ways of producting a cascading drop in ASP.NET Core MVC. This will work using .NET Framework as well.
 
